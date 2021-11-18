@@ -1,90 +1,66 @@
 // TODO: Include packages needed for this application
-var inquirer = require("inquirer");
-var generateMarkdown = require("./utils/generateMarkdown");
-var axios = require("axios");
-var fs = require("fs");
+const fs = require("fs");
+const inquirer = require("inquirer");
+const createMarkdown = require("./utils/generateMarkdown");
+
 // TODO: Create an array of questions for user input
-const questions = [
-    // questions to user using "inquirer"
+inquirer.prompt([
     {
-      type: "input",
-      message: "What is your GitHub user name?",
-      name: "username"
+        type: 'input',
+        name: 'user_name',
+        message: 'What is your name?'
     },
-  
     {
-      type: "input",
-      message: "What is your project Title?",
-      name: "title",
-      default: "Generate a README.md file "
+        type: 'input',
+        name: 'github_username',
+        message: 'What is your GitHub username?'
     },
-  
     {
-      type: "input",
-      message: "What is your repo called?",
-      name: "repo",
-      default: "GoodREADMEGenerator"
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?'
     },
-  
     {
-      type: "input",
-      message: "How do you describe your Project?.",
-      name: "desc",
-      default:
-        " This application will generate a README.md file for your current project"
+        type: 'input',
+        name: 'project',
+        message: 'What is the name of your project?'
     },
-  
     {
-      type: "input",
-      message: "What are the steps required to install your project?",
-      name: "install",
-      default: "Step1: Run npm install and Step2: Run node index.js"
+        type: 'input',
+        name: 'description',
+        message: 'In a short description describe the what, why and how of this project.'
     },
-  
     {
-      type: "input",
-      message: "Write instructions for using your project.",
-      name: "usage",
-      default:
-        "1.Run node index.js 2.Answers the questions 3.The README.md file will be created. "
+        type: 'input',
+        name: 'installation',
+        message: 'What are the steps to install your project?'
     },
-  
     {
-      type: "input",
-      message:
-        "please enter git hub user names of the contributor if any (If there are mulitple contributor, seperate names with comma and no space! )",
-      name: "contributors",
-      default: " Robert McKenney, Abdul Amoud and Igor Calvacante"
+        type: 'input',
+        name: 'usage',
+        message: 'Provide instructions and an example for use of this project.'
     },
-  
     {
-      type: "input",
-      message: "Provide examples on how to run tests.",
-      name: "test",
-      default: "Insert your tests sample here..."
-    }
-  ];
+        type: 'input',
+        name: 'contributing',
+        message: 'List any of the collaborators or links used for this project.'
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Write tests for you application. Then provide how to run them.'
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'What license do you wish to use for your project?',
+        choices: ['MIT', 'AGPL v3', 'GPL v3', 'LGPL v3', 'MPL 2.0', 'Apache 2.0', 'Boost 1.0', 'Zlib', 'None']
+    },
+])
 
-// TODO: Create a function to initialize app
-function init() {
-    inquirer.prompt(questions).then(answers => {
-      console.log(answers);
-      axios
-        .get("https://api.github.com/users/" + answers.username)
-        .then(response => {
-          console.log(response);
-          var imageURL = response.data.avatar_url;
-          answers.image = imageURL;
-          console.log(imageURL);
-          fs.writeFile("README.md", generateMarkdown(answers), function(err) {
-            if (err) {
-              throw err;
-            }
-          });
-        });
-    });
-  }
-  
-
-// Function call to initialize app
-init();
+.then((response) => {
+    const data = createMarkdown(response);
+    fs.writeFile("READMEgenerator.md", data, (err) =>
+        err ? console.error(err) : console.log('Markdown file succesfully created.')
+    );
+});
