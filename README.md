@@ -14,8 +14,6 @@
 In Visual Studio Code or a similar application open your integrated terminal tied to the index.js of this project and run 'npm install' or 'npm i'. This will download all packages needed to run the application.
 ## Usage
 In the integrated terminal, type in 'node index.js' to run the application and answer the prompts to create your own markdown document. This is the best way to cut down time spent formating a README file. See the below gif to see how the application should run. 
-## Contributors
- Robert McKenney, Abdul Amoud and Igor Calvacante
 ## Test
 ![Alt Text](https://github.com/Azo-na/Good-README-Generator/blob/main/readmegenerator.gif)
 ## Questions
