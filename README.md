@@ -10,17 +10,15 @@
 * [Questions](#questions)
 * [License](#license)
 * [Author] (#Author)
-* [Badges](#badges)
 ## Installation
-Step1: Run npm install and Step2: Run node index.js
+In Visual Studio Code or a similar application open your integrated terminal tied to the index.js of this project and run 'npm install' or 'npm i'. This will download all packages needed to run the application.
 ## Usage
-1.Run node index.js 2.Answers the questions 3.The README.md file will be created. 
+In the integrated terminal, type in 'node index.js' to run the application and answer the prompts to create your own markdown document. This is the best way to cut down time spent formating a README file. See the below gif to see how the application should run. 
 ## Contributors
  Robert McKenney, Abdul Amoud and Igor Calvacante
 ## Test
-Insert your tests sample here...
+![Alt Text](https://github.com/Azo-na/Good-README-Generator/blob/main/readmegenerator.gif)
 ## Questions
 If you have any questions, contact Azo-na on GitHub.
-## License
 ## Author 
 ![GitHub profile pic](https://avatars.githubusercontent.com/u/60130650?v=4)
