@@ -15,7 +15,7 @@ In Visual Studio Code or a similar application open your integrated terminal tie
 ## Usage
 In the integrated terminal, type in 'node index.js' to run the application and answer the prompts to create your own markdown document. This is the best way to cut down time spent formating a README file. See the below gif to see how the application should run. 
 ## Test
-![Alt Text](https://github.com/Azo-na/Good-README-Generator/blob/main/readmegenerator.gif)
+![Alt Text](https://github.com/Azo-na/Good-README-Generator/blob/main/2021-11-18%2010-32-22.mkv)
 ## Questions
 If you have any questions, contact Azo-na on GitHub.
 ## Author 
